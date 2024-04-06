@@ -10,7 +10,8 @@
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
-        "php-open-source-saver/jwt-auth": "^2.2"
+        "php-open-source-saver/jwt-auth": "^2.2",
+        "zircote/swagger-php": "^4.8"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.0",

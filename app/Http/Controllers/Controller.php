@@ -4,6 +4,21 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use OpenApi\Attributes as OA;
+
+#[OA\Info(
+    version: '0.1.0',
+    description: 'Blog API with Laravel 11',
+    title: 'Blog API'
+)]
+#[OA\SecurityScheme(
+    securityScheme: 'bearerToken',
+    type: 'apiKey',
+    name: 'Authorization',
+    in: 'header',
+    bearerFormat: 'JWT',
+    scheme: 'bearer',
+)]
 abstract class Controller
 {
     protected int $perPage = 20;
