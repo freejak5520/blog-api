@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::post('login', [\App\Http\Controllers\Auth\AuthController::class, 'login']);
+Route::post('login', [\App\Http\Controllers\Auth\AuthController::class, 'login'])->name('login');
 
 Route::middleware('auth:api')
     ->group(function () {
