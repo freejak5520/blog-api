@@ -42,6 +42,12 @@ return Application::configure(basePath: dirname(__DIR__))
                     ], 401);
                 }
 
+                if ($statusCode === 403) {
+                    return response()->json([
+                        'message' => 'Forbidden.'
+                    ], 403);
+                }
+
                 throw $e;
             });
 
