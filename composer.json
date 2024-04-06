@@ -1,5 +1,5 @@
 {
-    "name": "laravel/laravel",
+    "name": "jakelee/blog-api",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
     "keywords": ["laravel", "framework"],
@@ -12,6 +12,7 @@
         "laravel/tinker": "^2.9"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^3.0",
         "fakerphp/faker": "^1.23",
         "laravel/pint": "^1.13",
         "laravel/sail": "^1.26",
@@ -19,6 +20,7 @@
         "nunomaduro/collision": "^8.0",
         "pestphp/pest": "^2.0",
         "pestphp/pest-plugin-laravel": "^2.0",
+        "roave/security-advisories": "dev-latest",
         "spatie/laravel-ignition": "^2.4"
     },
     "autoload": {
