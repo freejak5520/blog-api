@@ -38,10 +38,10 @@ return Application::configure(basePath: dirname(__DIR__))
 
                 if ($statusCode === 401) {
                     return response()->json([
-                        'message' => 'Unauthorized.123'
+                        'message' => 'Unauthorized.'
                     ], 401);
                 }
-                
+
                 throw $e;
             });
 

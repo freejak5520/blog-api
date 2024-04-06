@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
     description: '# Login',
     summary: 'Login',
     requestBody: new OA\RequestBody(
-        description: '로그인 인증 정보',
+        description: 'Login Credentials',
         required: true,
         content: new OA\JsonContent(ref: '#/components/schemas/LoginRequest')
     ),

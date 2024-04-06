@@ -8,7 +8,9 @@ use OpenApi\Attributes as OA;
 
 #[OA\Info(
     version: '0.1.0',
-    description: 'Blog API with Laravel 11',
+    description: '## Blog API with Laravel 11
+
+Github: [https://github.com/smoothsquid/blog-api](https://github.com/smoothsquid/blog-api)',
     title: 'Blog API'
 )]
 #[OA\SecurityScheme(

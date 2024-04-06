@@ -11,8 +11,8 @@ use OpenApi\Attributes as OA;
 
 #[OA\Delete(
     path: '/api/posts/{id}',
-    description: 'Post Delete',
-    summary: 'Post Delete',
+    description: 'Delete Post',
+    summary: 'Delete Post',
     tags: ['Post'],
     responses: [
         new OA\Response(

@@ -12,8 +12,8 @@ use OpenApi\Attributes as OA;
 
 #[OA\Post(
     path: '/api/posts',
-    description: 'Post Save',
-    summary: 'Post Save',
+    description: 'Save Post',
+    summary: 'Save Post',
     requestBody: new OA\RequestBody(
         description: 'Post Save Request Body',
         required: true,

@@ -17,6 +17,11 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+
+# swagger
+storage/api-docs/api-docs.json
+
+# ide-helper
 .phpstorm.meta.php
 _ide_helper.php
 _ide_helper_models.php
