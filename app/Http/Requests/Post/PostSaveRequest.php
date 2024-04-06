@@ -4,16 +4,29 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Post;
 
-use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use OpenApi\Attributes as OA;
 
+#[OA\Schema(
+    title: 'Post Save Request',
+    description: 'Post Save Request',
+    properties: [
+        new OA\Property(
+            property: 'title',
+            description: 'Post Title',
+            type: 'string',
+            example: '제목 예시 입니다.'
+        ),
+        new OA\Property(
+            property: 'content',
+            description: 'Post Content',
+            type: 'string',
+            example: "내용 예시 입니다."
+        )
+    ]
+)]
 class PostSaveRequest extends FormRequest
 {
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [

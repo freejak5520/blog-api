@@ -7,7 +7,24 @@ namespace App\Http\Controllers\Post;
 use App\Http\Controllers\Controller;
 use App\Models\Post\Post;
 use Illuminate\Http\JsonResponse;
+use OpenApi\Attributes as OA;
+use Symfony\Component\HttpFoundation\Response;
 
+#[OA\Get(
+    path: '/api/posts/{id}',
+    description: 'Post Detail',
+    summary: 'Post Detail',
+    tags: ['Post'],
+    responses: [
+        new OA\Response(
+            response: Response::HTTP_OK,
+            description: 'Post Detail',
+            content: new OA\JsonContent(
+                ref: '#/components/schemas/PostDetailResource'
+            )
+        )
+    ]
+)]
 class PostDetailController extends Controller
 {
     public function __invoke(string $id): JsonResponse

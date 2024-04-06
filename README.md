@@ -28,7 +28,7 @@ FORWARD_DB_PORT=33066
 FORWARD_REDIS_PORT=63799
 ```
 
-### ide-helper
+## ide-helper
 
 ```shell
 php artisan ide-helper:eloquent # Add \Eloquent helper to \Eloquent\Model
@@ -36,3 +36,13 @@ php artisan ide-helper:generate # Generate a new IDE Helper file.
 php artisan ide-helper:meta # Generate metadata for PhpStorm
 php artisan ide-helper:models # Generate autocompletion for models
 ```
+
+## l5-swagger
+
+Generate swagger API docs
+
+```shell
+php artisan l5-swagger:generate
+```
+
+`/api/documentation`으로 API 문서 접근 가능

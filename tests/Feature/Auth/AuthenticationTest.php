@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 use App\Models\User\User;
 
-test('users can authenticate using the login screen', function () {
+test('로그인 성공', function () {
     $user = User::factory()->create();
 
-    $response = $this->post('/api/login', [
+    $response = $this->post(route('login'), [
         'email' => $user->email,
         'password' => 'password',
     ]);
@@ -16,10 +16,10 @@ test('users can authenticate using the login screen', function () {
     $response->assertOk();
 });
 
-test('users can not authenticate with invalid password', function () {
+test('로그인 실패', function () {
     $user = User::factory()->create();
 
-    $this->post('/api/login', [
+    $this->post(route('login'), [
         'email' => $user->email,
         'password' => 'wrong-password',
     ]);
