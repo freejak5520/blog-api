@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -19,18 +20,30 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->api(append: 'auth:api', prepend: [
             EnsureFrontendRequestsAreStateful::class,
         ]);
-
-//        $middleware->alias([
-//            'verified' => \App\Http\Middleware\EnsureEmailIsVerified::class,
-//        ]);
-        //
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        $exceptions->render(function (NotFoundHttpException $exception) {
-            return response()->json([
-                'message' => 'Not found'
-            ], 404);
-        });
+        $exceptions
+            ->render(function (NotFoundHttpException $e) {
+                return response()->json([
+                    'message' => 'Not found'
+                ], 404);
+            })
+            ->render(function (AuthenticationException $e) {
+                return response()->json([
+                    'message' => 'Unauthorized.'
+                ], 401);
+            })
+            ->render(function (\Symfony\Component\HttpKernel\Exception\HttpException $e) {
+                $statusCode = $e->getStatusCode();
+
+                if ($statusCode === 401) {
+                    return response()->json([
+                        'message' => 'Unauthorized.123'
+                    ], 401);
+                }
+                
+                throw $e;
+            });
 
         $exceptions->shouldRenderJsonWhen(function (\Illuminate\Http\Request $request) {
             if ($request->is("api/*")) {
