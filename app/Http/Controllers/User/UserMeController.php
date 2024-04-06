@@ -7,9 +7,6 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 
-/**
- * 로그인한 유저 정보
- */
 class UserMeController extends Controller
 {
     /**
@@ -17,6 +14,6 @@ class UserMeController extends Controller
      */
     public function __invoke(): JsonResponse
     {
-        return response()->json(auth()->user());
+        return response()->json(authUser());
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -15,7 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->api(prepend: [
+        $middleware->api(append: 'auth:api', prepend: [
             EnsureFrontendRequestsAreStateful::class,
         ]);
 
@@ -25,6 +26,12 @@ return Application::configure(basePath: dirname(__DIR__))
         //
     })
     ->withExceptions(function (Exceptions $exceptions) {
+        $exceptions->render(function (NotFoundHttpException $exception) {
+            return response()->json([
+                'message' => 'Not found'
+            ], 404);
+        });
+
         $exceptions->shouldRenderJsonWhen(function (\Illuminate\Http\Request $request) {
             if ($request->is("api/*")) {
                 return true;
