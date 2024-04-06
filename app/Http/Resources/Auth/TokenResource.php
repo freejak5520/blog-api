@@ -26,7 +26,8 @@ use OpenApi\Attributes as OA;
             type: 'integer',
             example: '3600'
         ),
-    ]
+    ],
+  
 )]
 class TokenResource extends JsonResource
 {

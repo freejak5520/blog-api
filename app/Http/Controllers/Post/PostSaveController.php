@@ -30,6 +30,15 @@ use Symfony\Component\HttpFoundation\Response;
             content: new OA\JsonContent(
                 ref: '#/components/schemas/PostDetailResource'
             )
+        ),
+        new OA\Response(
+            response: Response::HTTP_UNAUTHORIZED,
+            description: 'Unauthorized',
+            content: new OA\JsonContent(
+                example: [
+                    'message' => 'Unauthorized.'
+                ]
+            )
         )
     ],
 )]

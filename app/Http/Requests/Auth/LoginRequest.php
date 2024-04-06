@@ -13,7 +13,7 @@ use OpenApi\Attributes as OA;
             property: 'email',
             description: 'Email',
             type: 'string',
-            example: 'user1@example.com'
+            example: 'freejak5520@gmail.com'
         ),
         new OA\Property(
             property: 'password',
