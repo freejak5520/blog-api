@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Models\User;
+use App\Models\User\User;
 
 test('users can authenticate using the login screen', function () {
     $user = User::factory()->create();

@@ -26,6 +26,19 @@ class AuthController extends Controller
     }
 
     /**
+     * @param $token
+     * @return JsonResponse
+     */
+    protected function respondWithToken($token): JsonResponse
+    {
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => auth()->factory()->getTTL() * 60
+        ]);
+    }
+
+    /**
      * @return JsonResponse
      */
     public function logout(): JsonResponse
@@ -39,24 +52,10 @@ class AuthController extends Controller
     /**
      * Refresh a token.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function refresh(): JsonResponse
     {
         return $this->respondWithToken(auth()->refresh());
-    }
-
-
-    /**
-     * @param $token
-     * @return JsonResponse
-     */
-    protected function respondWithToken($token): JsonResponse
-    {
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
-        ]);
     }
 }

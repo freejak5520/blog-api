@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Models\User\User;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 
@@ -14,7 +15,7 @@ Artisan::command('register', function () {
     $username = $this->ask('Username');
     $password = $this->ask('Password');
 
-    $user = \App\Models\User::create([
+    $user = User::create([
         'email' => $email,
         'name' => $username,
         'password' => bcrypt($password),
