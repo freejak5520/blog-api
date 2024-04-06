@@ -9,6 +9,7 @@ use App\Http\Requests\Post\PostSaveRequest;
 use App\Models\User\User;
 use Illuminate\Http\JsonResponse;
 use OpenApi\Attributes as OA;
+use Symfony\Component\HttpFoundation\Response;
 
 #[OA\Post(
     path: '/api/posts',
@@ -24,7 +25,7 @@ use OpenApi\Attributes as OA;
     tags: ['Post'],
     responses: [
         new OA\Response(
-            response: 200,
+            response: Response::HTTP_OK,
             description: 'Post Detail',
             content: new OA\JsonContent(
                 ref: '#/components/schemas/PostDetailResource'
