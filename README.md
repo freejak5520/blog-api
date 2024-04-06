@@ -4,11 +4,36 @@ Laravel을 사용하여 블로그 Rest API를 구현합니다.
 
 ## Install
 
-### Install packages
+### Copy .env
+
+```shell
+cp 
+```
+
+### Install Dependencies
 
 ```shell
 composer install
 ```
+
+### Generate key
+
+```shell
+php artisan key:generate # Create app key
+php artisan jwt:secret # Create JWT key
+```
+
+## l5-swagger
+
+Generate swagger API docs
+
+```shell
+php artisan l5-swagger:generate
+```
+
+`/api/documentation`으로 API 문서 접근 가능
+
+## 개발 환경
 
 ### Docker compose
 
@@ -28,7 +53,7 @@ FORWARD_DB_PORT=33066
 FORWARD_REDIS_PORT=63799
 ```
 
-## ide-helper
+### ide-helper
 
 ```shell
 php artisan ide-helper:eloquent # Add \Eloquent helper to \Eloquent\Model
@@ -36,13 +61,3 @@ php artisan ide-helper:generate # Generate a new IDE Helper file.
 php artisan ide-helper:meta # Generate metadata for PhpStorm
 php artisan ide-helper:models # Generate autocompletion for models
 ```
-
-## l5-swagger
-
-Generate swagger API docs
-
-```shell
-php artisan l5-swagger:generate
-```
-
-`/api/documentation`으로 API 문서 접근 가능
