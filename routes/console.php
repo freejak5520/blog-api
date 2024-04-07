@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Artisan;
 
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote')->hourly();
+})->purpose('Display an inspiring quote');
 
 Artisan::command('register', function () {
     $email = $this->ask('Email');
@@ -22,4 +22,4 @@ Artisan::command('register', function () {
     ]);
 
     $this->info($user->toJson());
-});
+})->purpose('Register User');

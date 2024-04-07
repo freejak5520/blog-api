@@ -8,6 +8,8 @@ use Illuminate\Foundation\Http\FormRequest;
 use OpenApi\Attributes as OA;
 
 #[OA\Schema(
+    title: 'Login Request',
+    description: 'Login credentials',
     properties: [
         new OA\Property(
             property: 'email',

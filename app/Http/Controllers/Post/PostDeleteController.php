@@ -21,13 +21,8 @@ use Symfony\Component\HttpFoundation\Response;
             description: 'Success',
         ),
         new OA\Response(
-            response: Response::HTTP_UNAUTHORIZED,
-            description: 'Unauthorized',
-            content: new OA\JsonContent(
-                example: [
-                    'message' => 'Unauthorized.'
-                ]
-            )
+            ref: '#/components/responses/Unauthorized',
+            response: Response::HTTP_UNAUTHORIZED
         )
     ]
 )]

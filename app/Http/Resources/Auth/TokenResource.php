@@ -7,6 +7,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use OpenApi\Attributes as OA;
 
 #[OA\Schema(
+    title: 'Token Resource',
+    description: 'JWT Token resource',
     properties: [
         new OA\Property(
             property: 'access_token',
@@ -27,7 +29,7 @@ use OpenApi\Attributes as OA;
             example: '3600'
         ),
     ],
-  
+
 )]
 class TokenResource extends JsonResource
 {

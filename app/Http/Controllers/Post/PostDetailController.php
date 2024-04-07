@@ -22,7 +22,11 @@ use Symfony\Component\HttpFoundation\Response;
             content: new OA\JsonContent(
                 ref: '#/components/schemas/PostDetailResource'
             )
-        )
+        ),
+        new OA\Response(
+            ref: '#/components/responses/NotFound',
+            response: Response::HTTP_NOT_FOUND
+        ),
     ]
 )]
 class PostDetailController extends Controller

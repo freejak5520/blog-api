@@ -19,18 +19,13 @@ use Symfony\Component\HttpFoundation\Response;
             response: Response::HTTP_OK,
             description: 'OK',
             content: new OA\JsonContent(
-                ref: '#/components/schemas/User'
+                ref: '#/components/schemas/UserDetailResource'
             )
         ),
         new OA\Response(
-            response: Response::HTTP_UNAUTHORIZED,
-            description: 'Unauthenticated',
-            content: new OA\JsonContent(
-                example: [
-                    'message' => 'Unauthenticated.'
-                ]
-            )
-        ),
+            ref: '#/components/responses/Unauthorized',
+            response: Response::HTTP_UNAUTHORIZED
+        )
     ])]
 class UserMeController extends Controller
 {

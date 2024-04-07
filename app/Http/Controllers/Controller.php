@@ -13,13 +13,37 @@ use OpenApi\Attributes as OA;
 Github: [https://github.com/smoothsquid/blog-api](https://github.com/smoothsquid/blog-api)',
     title: 'Blog API'
 )]
-#[OA\SecurityScheme(
-    securityScheme: 'bearerToken',
-    type: 'apiKey',
-    name: 'Authorization',
-    in: 'header',
-    bearerFormat: 'JWT',
-    scheme: 'bearer',
+#[OA\Components(
+    responses: [
+        new OA\Response(
+            response: 'Unauthorized',
+            description: 'Unauthorized',
+            content: new OA\JsonContent(
+                example: [
+                    'message' => 'Unauthorized.'
+                ]
+            )
+        ),
+        new OA\Response(
+            response: 'NotFound',
+            description: 'Not found',
+            content: new OA\JsonContent(
+                example: [
+                    "message" => "Not found"
+                ]
+            )
+        )
+    ],
+    securitySchemes: [
+        new OA\SecurityScheme(
+            securityScheme: 'bearerToken',
+            type: 'apiKey',
+            name: 'Authorization',
+            in: 'header',
+            bearerFormat: 'JWT',
+            scheme: 'bearer',
+        )
+    ],
 )]
 abstract class Controller
 {
