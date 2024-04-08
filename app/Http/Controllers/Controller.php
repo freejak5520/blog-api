@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 use OpenApi\Attributes as OA;
 
 #[OA\Info(
-    version: '0.1.0',
+    version: '0.0.1',
     description: '## Blog API with Laravel 11
 
 Github: [https://github.com/smoothsquid/blog-api](https://github.com/smoothsquid/blog-api)',
