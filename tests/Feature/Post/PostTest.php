@@ -5,6 +5,14 @@ declare(strict_types=1);
 use App\Models\Post\Post;
 use App\Models\User\User;
 
+test('회원과 연결된 게시글', function () {
+    $post = Post::factory()->hasUser()->create();
+
+    $user = $post->user;
+
+    $this->assertInstanceOf(User::class, $user);
+});
+
 test('게시글 목록', function () {
     $user = User::factory()->create();
 
@@ -27,9 +35,8 @@ test('게시글 등록', function () {
         'content' => fake()->sentences(asText: true),
     ]);
 
-    $response->assertOk();
+    $response->assertCreated();
 });
-
 
 test('게시글 등록 권한 실패', function () {
     $response = $this->post(route('posts'), [

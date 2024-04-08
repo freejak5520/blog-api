@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\PostSaveRequest;
+use App\Http\Resources\Post\PostDetailResource;
 use Illuminate\Http\JsonResponse;
 use OpenApi\Attributes as OA;
 use Symfony\Component\HttpFoundation\Response;
@@ -46,6 +47,6 @@ class PostSaveController extends Controller
 
         $post = $user->posts()->create($params);
 
-        return response()->json($post);
+        return PostDetailResource::make($post)->response();
     }
 }

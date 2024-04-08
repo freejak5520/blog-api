@@ -16,9 +16,10 @@ Route::prefix('auth')
         Route::withoutMiddleware('auth:api')
             ->post('login', LoginController::class)->name('login');
     });
+
 Route::prefix('users')
     ->group(function () {
-        Route::get('me', UserMeController::class);
+        Route::get('me', UserMeController::class)->name('users.me');
     });
 
 Route::prefix('posts')
