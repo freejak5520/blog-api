@@ -20,7 +20,7 @@ Github: [https://github.com/smoothsquid/blog-api](https://github.com/smoothsquid
             description: 'Unauthorized',
             content: new OA\JsonContent(
                 example: [
-                    'message' => 'Unauthorized.'
+                    'message' => 'Unauthorized.',
                 ]
             )
         ),
@@ -29,10 +29,10 @@ Github: [https://github.com/smoothsquid/blog-api](https://github.com/smoothsquid
             description: 'Not found',
             content: new OA\JsonContent(
                 example: [
-                    "message" => "Not found"
+                    'message' => 'Not found',
                 ]
             )
-        )
+        ),
     ],
     securitySchemes: [
         new OA\SecurityScheme(
@@ -42,7 +42,7 @@ Github: [https://github.com/smoothsquid/blog-api](https://github.com/smoothsquid
             in: 'header',
             bearerFormat: 'JWT',
             scheme: 'bearer',
-        )
+        ),
     ],
 )]
 abstract class Controller

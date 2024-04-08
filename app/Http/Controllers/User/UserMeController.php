@@ -26,7 +26,7 @@ use Symfony\Component\HttpFoundation\Response;
         new OA\Response(
             ref: '#/components/responses/Unauthorized',
             response: Response::HTTP_UNAUTHORIZED
-        )
+        ),
     ])]
 class UserMeController extends Controller
 {

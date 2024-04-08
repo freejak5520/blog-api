@@ -21,8 +21,8 @@ use OpenApi\Attributes as OA;
             property: 'content',
             description: 'Post Content',
             type: 'string',
-            example: "내용 예시 입니다."
-        )
+            example: '내용 예시 입니다.'
+        ),
     ]
 )]
 class PostSaveRequest extends FormRequest
