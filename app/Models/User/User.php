@@ -26,6 +26,8 @@ class User extends Authenticatable implements JWTSubject
         'password',
         'remember_token',
         'email_verified_at',
+        'created_at',
+        'updated_at',
     ];
 
     public function getJWTIdentifier(): mixed
@@ -35,7 +37,9 @@ class User extends Authenticatable implements JWTSubject
 
     public function getJWTCustomClaims(): array
     {
-        return [];
+        return [
+            'user' => $this,
+        ];
     }
 
     public function posts(): HasMany

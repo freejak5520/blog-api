@@ -30,19 +30,19 @@ use OpenApi\Attributes as OA;
                     type: 'string',
                     example: 'freejak5520@gmail.com'
                 ),
-                new OA\Property(
-                    property: 'created_at',
-                    description: '가입일',
-                    type: 'string',
-                    example: '2024-04-06T02:28:01.000000Z'
-                ),
-                new OA\Property(
-                    property: 'updated_at',
-                    description: '수정일',
-                    type: 'string',
-                    example: '2024-04-06T02:28:01.000000Z',
-                    nullable: true
-                ),
+//                new OA\Property(
+//                    property: 'created_at',
+//                    description: '가입일',
+//                    type: 'string',
+//                    example: '2024-04-06T02:28:01.000000Z'
+//                ),
+//                new OA\Property(
+//                    property: 'updated_at',
+//                    description: '수정일',
+//                    type: 'string',
+//                    example: '2024-04-06T02:28:01.000000Z',
+//                    nullable: true
+//                ),
             ],
             type: 'object'
         ),
