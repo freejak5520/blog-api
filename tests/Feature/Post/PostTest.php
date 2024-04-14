@@ -21,10 +21,10 @@ test('게시글 목록', function () {
     $response->assertOk();
 });
 
-test('게시글 목록 권한 실패', function () {
+test('게시글 목록 비로그인', function () {
     $response = $this->get(route('posts'));
 
-    $response->assertUnauthorized();
+    $response->assertOk();
 });
 
 test('게시글 등록', function () {
@@ -57,7 +57,7 @@ test('게시글 상세페이지', function () {
     $response->assertOk();
 });
 
-test('게시글 상세페이지 권한 실패', function () {
+test('게시글 상세페이지 비로그인', function () {
     $user = User::factory()->has(
         Post::factory()
     )->create();
@@ -66,7 +66,7 @@ test('게시글 상세페이지 권한 실패', function () {
 
     $response = $this->get(route('posts.detail', ['id' => $post?->getKey()]));
 
-    $response->assertUnauthorized();
+    $response->assertOk();
 });
 
 test('게시글 삭제 권한 실패', function () {
