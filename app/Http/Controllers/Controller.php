@@ -58,6 +58,6 @@ abstract class Controller
      */
     public function perPage(): int
     {
-        return $this->perPage;
+        return (int)request()?->input('per_page', $this->perPage);
     }
 }

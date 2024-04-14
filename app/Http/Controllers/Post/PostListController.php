@@ -36,7 +36,6 @@ use Symfony\Component\HttpFoundation\Response;
 )]
 class PostListController extends Controller
 {
-
     public function __invoke(): JsonResponse
     {
         $builder = Post::query()
