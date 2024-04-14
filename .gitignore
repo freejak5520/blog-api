@@ -18,6 +18,8 @@ yarn-error.log
 /.idea
 /.vscode
 
+storage/tmp
+
 # swagger
 storage/api-docs/api-docs.json
 

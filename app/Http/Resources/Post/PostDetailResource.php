@@ -11,34 +11,40 @@ use OpenApi\Attributes as OA;
     description: 'Post Detail Resource',
     properties: [
         new OA\Property(
-            property: 'id',
-            description: 'Post ID',
-            type: 'integer',
-            example: 1
-        ),
-        new OA\Property(
-            property: 'title',
-            description: 'Post Title',
-            type: 'string',
-            example: 'This is title'
-        ),
-        new OA\Property(
-            property: 'content',
-            description: 'Post Content',
-            type: 'string',
-            example: 'This is Contents'
-        ),
-        new OA\Property(
-            property: 'created_at',
-            description: 'Post Created At',
-            type: 'string',
-            example: '2024-04-06T06:42:14.000000Z'
-        ),
-        new OA\Property(
-            property: 'updated_at',
-            description: 'Post Updated At',
-            type: 'string',
-            example: '2024-04-06T06:42:14.000000Z'
+            property: 'data',
+            properties: [
+                new OA\Property(
+                    property: 'id',
+                    description: 'Post ID',
+                    type: 'integer',
+                    example: 1
+                ),
+                new OA\Property(
+                    property: 'title',
+                    description: 'Post Title',
+                    type: 'string',
+                    example: 'This is title'
+                ),
+                new OA\Property(
+                    property: 'content',
+                    description: 'Post Content',
+                    type: 'string',
+                    example: 'This is Contents'
+                ),
+                new OA\Property(
+                    property: 'created_at',
+                    description: 'Post Created At',
+                    type: 'string',
+                    example: '2024-04-06T06:42:14.000000Z'
+                ),
+                new OA\Property(
+                    property: 'updated_at',
+                    description: 'Post Updated At',
+                    type: 'string',
+                    example: '2024-04-06T06:42:14.000000Z'
+                ),
+            ],
+            type: 'object'
         ),
     ]
 )]

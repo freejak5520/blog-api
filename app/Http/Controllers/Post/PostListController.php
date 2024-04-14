@@ -23,14 +23,14 @@ use Symfony\Component\HttpFoundation\Response;
             content: new OA\JsonContent(
                 properties: [
                     new OA\Property(
-                        property: "data",
-                        description: "게시글 목록",
-                        type: "array",
-                        items: new OA\Items(ref: "#/components/schemas/PostDetailResource")
-                    )
+                        property: 'data',
+                        description: '게시글 목록',
+                        type: 'array',
+                        items: new OA\Items(ref: '#/components/schemas/PostDetailResource')
+                    ),
                 ]
             )
-        )
+        ),
     ]
 )]
 class PostListController extends Controller

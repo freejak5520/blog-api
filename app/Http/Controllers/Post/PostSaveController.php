@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\PostSaveRequest;
+use App\Http\Resources\Post\PostDetailResource;
 use Illuminate\Http\JsonResponse;
 use OpenApi\Attributes as OA;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,7 +34,7 @@ use Symfony\Component\HttpFoundation\Response;
         new OA\Response(
             ref: '#/components/responses/Unauthorized',
             response: Response::HTTP_UNAUTHORIZED
-        )
+        ),
     ],
 )]
 class PostSaveController extends Controller
@@ -46,6 +47,6 @@ class PostSaveController extends Controller
 
         $post = $user->posts()->create($params);
 
-        return response()->json($post);
+        return PostDetailResource::make($post)->response();
     }
 }

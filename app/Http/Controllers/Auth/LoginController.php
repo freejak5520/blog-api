@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Resources\Auth\TokenResource;
 use Illuminate\Http\JsonResponse;
 use OpenApi\Attributes as OA;
@@ -29,20 +30,19 @@ use Symfony\Component\HttpFoundation\Response;
         new OA\Response(
             ref: '#/components/responses/Unauthorized',
             response: Response::HTTP_UNAUTHORIZED
-        )
+        ),
     ]
 )]
 class LoginController extends Controller
 {
-    public function __invoke(): JsonResponse
+    public function __invoke(LoginRequest $request): JsonResponse
     {
-        $credentials = request(['email', 'password']);
+        $credentials = $request->validated();
 
         if (!$token = auth('api')->attempt($credentials)) {
             abort(401);
-//            return response()->json(['message' => 'Unauthorized.'], 401);
         }
 
-        return response()->json(TokenResource::make($token));
+        return TokenResource::make($token)->response();
     }
 }

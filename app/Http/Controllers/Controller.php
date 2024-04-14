@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 use OpenApi\Attributes as OA;
 
 #[OA\Info(
-    version: '0.1.0',
+    version: '0.0.1',
     description: '## Blog API with Laravel 11
 
 Github: [https://github.com/smoothsquid/blog-api](https://github.com/smoothsquid/blog-api)',
@@ -20,7 +20,7 @@ Github: [https://github.com/smoothsquid/blog-api](https://github.com/smoothsquid
             description: 'Unauthorized',
             content: new OA\JsonContent(
                 example: [
-                    'message' => 'Unauthorized.'
+                    'message' => 'Unauthorized.',
                 ]
             )
         ),
@@ -29,10 +29,10 @@ Github: [https://github.com/smoothsquid/blog-api](https://github.com/smoothsquid
             description: 'Not found',
             content: new OA\JsonContent(
                 example: [
-                    "message" => "Not found"
+                    'message' => 'Not found',
                 ]
             )
-        )
+        ),
     ],
     securitySchemes: [
         new OA\SecurityScheme(
@@ -42,7 +42,7 @@ Github: [https://github.com/smoothsquid/blog-api](https://github.com/smoothsquid
             in: 'header',
             bearerFormat: 'JWT',
             scheme: 'bearer',
-        )
+        ),
     ],
 )]
 abstract class Controller

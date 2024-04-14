@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Post\PostDetailResource;
 use App\Models\Post\Post;
 use Illuminate\Http\JsonResponse;
 use OpenApi\Attributes as OA;
@@ -35,6 +36,6 @@ class PostDetailController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        return response()->json($post);
+        return PostDetailResource::make($post)->response();
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\User\UserDetailResource;
 use Illuminate\Http\JsonResponse;
 use OpenApi\Attributes as OA;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,7 +26,7 @@ use Symfony\Component\HttpFoundation\Response;
         new OA\Response(
             ref: '#/components/responses/Unauthorized',
             response: Response::HTTP_UNAUTHORIZED
-        )
+        ),
     ])]
 class UserMeController extends Controller
 {
@@ -34,6 +35,7 @@ class UserMeController extends Controller
      */
     public function __invoke(): JsonResponse
     {
-        return response()->json(authUser());
+        return UserDetailResource::make(authUser())->response();
+//        response()->json(authUser());
     }
 }
