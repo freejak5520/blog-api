@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Post\PostDetailResource;
+use App\Http\Resources\Post\PostListResource;
+use App\Http\Resources\Post\PostSimpleResource;
 use App\Models\Post\Post;
 use Illuminate\Http\JsonResponse;
 use OpenApi\Attributes as OA;
@@ -39,9 +40,8 @@ class PostListController extends Controller
     public function __invoke(): JsonResponse
     {
         $builder = Post::query()
-            ->limitText('content', 150)
             ->orderByDesc('id');
 
-        return PostDetailResource::collection($builder->paginate($this->perPage()))->response();
+        return PostSimpleResource::collection($builder->paginate($this->perPage()))->response();
     }
 }
