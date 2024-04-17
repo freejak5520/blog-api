@@ -85,7 +85,7 @@ test('게시글 상세페이지', function () {
 
     $post = $user->posts()->first();
 
-    $response = $this->actingAs($user)->get(route('posts.detail', ['id' => $post->getKey()]));
+    $response = $this->actingAs($user)->get(route('posts.detail', ['slug' => $post->slug]));
 
     $response->assertOk();
     $response->assertJson(fn(AssertableJson $json) => $json
@@ -99,7 +99,7 @@ test('게시글 상세페이지 비로그인', function () {
 
     $post = $user->posts()->first();
 
-    $response = $this->get(route('posts.detail', ['id' => $post?->getKey()]));
+    $response = $this->get(route('posts.detail', ['slug' => $post?->slug]));
 
     $response->assertOk();
     $response->assertJson(fn(AssertableJson $json) => $json
@@ -111,7 +111,7 @@ test('게시글 삭제 권한 실패', function () {
     $user = $users->first();
     $post = $users->get(1)->posts()->first();
 
-    $response = $this->actingAs($user)->delete(route('posts.detail', ['id' => $post->getKey()]));
+    $response = $this->actingAs($user)->delete(route('posts.detail', ['slug' => $post->slug]));
 
     $response->assertForbidden();
 });
@@ -120,7 +120,7 @@ test('게시글 삭제 비로그인', function () {
     $user = User::factory()->has(Post::factory())->create();
     $post = $user->posts()->first();
 
-    $response = $this->delete(route('posts.detail', ['id' => $post->getKey()]));
+    $response = $this->delete(route('posts.detail', ['slug' => $post->slug]));
 
     $response->assertUnauthorized();
 });
@@ -129,7 +129,7 @@ test('게시글 삭제 성공', function () {
     $user = User::factory()->has(Post::factory())->create();
     $post = $user->posts()->first();
 
-    $response = $this->actingAs($user)->delete(route('posts.detail', ['id' => $post->getKey()]));
+    $response = $this->actingAs($user)->delete(route('posts.detail', ['slug' => $post->slug]));
 
     $response->assertOk();
 });

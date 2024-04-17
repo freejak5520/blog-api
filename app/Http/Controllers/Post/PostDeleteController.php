@@ -28,11 +28,11 @@ use Symfony\Component\HttpFoundation\Response;
 )]
 class PostDeleteController extends Controller
 {
-    public function __invoke(string $id): JsonResponse
+    public function __invoke(string $slug): JsonResponse
     {
         $user = authUser();
 
-        $post = Post::findOrFail($id);
+        $post = Post::where('slug', $slug)->firstOrFail();
 
         if ($post->user_id !== $user->getKey()) {
             abort(403);

@@ -29,5 +29,5 @@ Route::prefix('posts')
         });
 
         Route::post('', PostSaveController::class);
-        Route::delete('{id}', PostDeleteController::class)->name('posts.detail');
+        Route::delete('{slug}', PostDeleteController::class);
     });
