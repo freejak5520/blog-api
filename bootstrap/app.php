@@ -25,12 +25,12 @@ return Application::configure(basePath: dirname(__DIR__))
         $exceptions
             ->render(function (NotFoundHttpException $e) {
                 return response()->json([
-                    'message' => 'Not found'
+                    'message' => 'Not found',
                 ], 404);
             })
             ->render(function (AuthenticationException $e) {
                 return response()->json([
-                    'message' => 'Unauthorized.'
+                    'message' => 'Unauthorized.',
                 ], 401);
             })
             ->render(function (\Symfony\Component\HttpKernel\Exception\HttpException $e) {
@@ -38,13 +38,13 @@ return Application::configure(basePath: dirname(__DIR__))
 
                 if ($statusCode === 401) {
                     return response()->json([
-                        'message' => 'Unauthorized.'
+                        'message' => 'Unauthorized.',
                     ], 401);
                 }
 
                 if ($statusCode === 403) {
                     return response()->json([
-                        'message' => 'Forbidden.'
+                        'message' => 'Forbidden.',
                     ], 403);
                 }
 
@@ -52,7 +52,7 @@ return Application::configure(basePath: dirname(__DIR__))
             });
 
         $exceptions->shouldRenderJsonWhen(function (\Illuminate\Http\Request $request) {
-            if ($request->is("api/*")) {
+            if ($request->is('api/*')) {
                 return true;
             }
             return false;

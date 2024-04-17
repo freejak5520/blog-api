@@ -10,7 +10,7 @@ Laravel을 사용하여 블로그 Rest API를 구현합니다.
 cp .env.example .env
 ```
 
-`.env` 파일을 수정하여 DB 연결 설정
+`.env` 파일을 수정하여 DB 연결을 설정합니다.
 
 ```shell
 DB_CONNECTION=mysql
