@@ -10,7 +10,7 @@ use OpenApi\Attributes as OA;
     version: '0.0.1',
     description: '## Blog API with Laravel 11
 
-Github: [https://github.com/smoothsquid/blog-api](https://github.com/smoothsquid/blog-api)',
+Github: [https://github.com/freejak5520/blog-api](https://github.com/freejak5520/blog-api)',
     title: 'Blog API'
 )]
 #[OA\Components(
