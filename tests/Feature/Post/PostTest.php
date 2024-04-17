@@ -61,6 +61,7 @@ test('게시글 등록', function () {
     $user = User::factory()->create();
 
     $response = $this->actingAs($user)->post(route('posts'), [
+        'slug' => fake()->slug,
         'title' => fake()->title,
         'content' => fake()->sentences(asText: true),
     ]);

@@ -20,6 +20,12 @@ use OpenApi\Attributes as OA;
                     example: 1
                 ),
                 new OA\Property(
+                    property: 'slug',
+                    description: '게시글 URL에 사용하는 slug입니다.',
+                    type: 'string',
+                    example: 'this_is_slug'
+                ),
+                new OA\Property(
                     property: 'title',
                     description: 'Post Title',
                     type: 'string',
@@ -54,6 +60,7 @@ class PostDetailResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'slug' => $this->slug,
             'title' => $this->title,
             'content' => $this->content,
             'created_at' => $this->created_at,

@@ -14,8 +14,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 #[OA\Get(
     path: '/api/posts/{id}',
-    description: 'Post Detail',
-    summary: 'Post Detail',
+    description: 'Post Detail v2',
+    summary: 'Post Detail v2',
     tags: ['Post'],
     responses: [
         new OA\Response(
@@ -31,13 +31,13 @@ use Symfony\Component\HttpFoundation\Response;
         ),
     ]
 )]
-class PostDetailController extends Controller
+class PostDetailV2Controller extends Controller
 {
-    public function __invoke(string $slug): JsonResponse
+    public function __invoke(string $id): JsonResponse
     {
-        Log::info('post id' . $slug);
+        Log::info('post id' . $id);
 
-        $post = Post::where('slug', $slug)->firstOrFail();
+        $post = Post::findOrFail($id);
 
         return PostDetailResource::make($post)->response();
     }

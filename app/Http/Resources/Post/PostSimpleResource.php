@@ -16,6 +16,7 @@ class PostSimpleResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'slug' => $this->slug,
             'title' => $this->title,
             'content' => Str::limit($this->content, 150),
             'created_at' => $this->created_at,
