@@ -17,9 +17,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->api(append: 'auth:api', prepend: [
-            EnsureFrontendRequestsAreStateful::class,
-        ]);
+        $middleware
+            ->api(append: 'auth:api', prepend: [
+                EnsureFrontendRequestsAreStateful::class,
+            ])
+            ->validateCsrfTokens(except: ["*"]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions
