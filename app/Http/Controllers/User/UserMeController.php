@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
     path: '/api/v1/users/me',
     description: '# Me',
     summary: 'Me',
+    security: [['bearerAuth' => []]],
     tags: ['User'],
     responses: [
         new OA\Response(

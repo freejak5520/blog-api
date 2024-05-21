@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
     path: '/api/v1/posts',
     description: 'Save Post',
     summary: 'Save Post',
+    security: [['bearerAuth' => []]],
     requestBody: new OA\RequestBody(
         description: 'Post Save Request Body',
         required: true,

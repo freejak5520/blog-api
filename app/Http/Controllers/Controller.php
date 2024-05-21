@@ -36,8 +36,8 @@ Github: [https://github.com/freejak5520/blog-api](https://github.com/freejak5520
     ],
     securitySchemes: [
         new OA\SecurityScheme(
-            securityScheme: 'bearerToken',
-            type: 'apiKey',
+            securityScheme: 'bearerAuth',
+            type: 'http',
             name: 'Authorization',
             in: 'header',
             bearerFormat: 'JWT',
