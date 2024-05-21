@@ -11,7 +11,7 @@ use OpenApi\Attributes as OA;
 use Symfony\Component\HttpFoundation\Response;
 
 #[OA\Get(
-    path: '/api/users/me',
+    path: '/api/v1/users/me',
     description: '# Me',
     summary: 'Me',
     tags: ['User'],

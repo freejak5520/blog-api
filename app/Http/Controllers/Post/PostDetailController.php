@@ -8,12 +8,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Post\PostDetailResource;
 use App\Models\Post\Post;
 use Illuminate\Http\JsonResponse;
-use Log;
+use Illuminate\Support\Facades\Log;
 use OpenApi\Attributes as OA;
 use Symfony\Component\HttpFoundation\Response;
 
 #[OA\Get(
-    path: '/api/posts/{id}',
+    path: '/api/v1/posts/{id}',
     description: 'Post Detail',
     summary: 'Post Detail',
     tags: ['Post'],

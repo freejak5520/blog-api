@@ -10,7 +10,7 @@ use OpenApi\Attributes as OA;
 use Symfony\Component\HttpFoundation\Response;
 
 #[OA\Post(
-    path: '/api/auth/login',
+    path: '/api/v1/auth/login',
     description: '# Login',
     summary: 'Login',
     requestBody: new OA\RequestBody(

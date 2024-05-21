@@ -11,7 +11,7 @@ use OpenApi\Attributes as OA;
 use Symfony\Component\HttpFoundation\Response;
 
 #[OA\Delete(
-    path: '/api/posts/{id}',
+    path: '/api/v1/posts/{id}',
     description: 'Delete Post',
     summary: 'Delete Post',
     tags: ['Post'],

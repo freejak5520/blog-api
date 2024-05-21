@@ -8,4 +8,6 @@ Route::prefix('v1')->group(function () {
     require __DIR__ . '/v1.php';
 });
 
-require __DIR__ . '/v1.php';
+Route::prefix('v2')->group(function () {
+    require __DIR__ . '/v2.php';
+});

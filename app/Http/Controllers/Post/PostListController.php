@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Post\PostListResource;
 use App\Http\Resources\Post\PostSimpleResource;
 use App\Models\Post\Post;
 use Illuminate\Http\JsonResponse;
@@ -13,7 +12,7 @@ use OpenApi\Attributes as OA;
 use Symfony\Component\HttpFoundation\Response;
 
 #[OA\Get(
-    path: '/api/posts',
+    path: '/api/v1/posts',
     description: 'Post List',
     summary: 'Post List',
     tags: ['Post'],

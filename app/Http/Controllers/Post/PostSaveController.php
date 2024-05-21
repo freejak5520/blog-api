@@ -12,7 +12,7 @@ use OpenApi\Attributes as OA;
 use Symfony\Component\HttpFoundation\Response;
 
 #[OA\Post(
-    path: '/api/posts',
+    path: '/api/v1/posts',
     description: 'Save Post',
     summary: 'Save Post',
     requestBody: new OA\RequestBody(
